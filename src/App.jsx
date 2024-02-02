@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import "./App.css";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(true);
   const { items } = useContext(ProductsContext);
 
   useEffect(() => {
@@ -16,13 +17,21 @@ function App() {
     <>
       <Fieldset
         data-aos="zoom-in"
-        data-aos-delay="200"
+        data-aos-delay="500"
         data-aos-duration="1000"
         data-aos-mirror="true"
+        style={{ scale: isVisible ? "" : "0", transition: "500ms" }}
       >
         <p className="m-0">{items[0].question}</p>
       </Fieldset>
 
+      <button
+        onClick={() => {
+          setIsVisible(!isVisible);
+        }}
+      >
+        Göster / Gizle
+      </button>
       <Particles id="tsparticles" />
     </>
   );
