@@ -9,3 +9,7 @@
 .p-progressbar-value{background-color: #66bfbf;}
 .active{background-color: #66bfbf !important;color: white;cursor: not-allowed !important;}
 .non-active{cursor: not-allowed !important;}
+@media(max-width:972px){
+    .menu{flex-direction: column;}
+    .menu > div{width: 100%;}
+}
