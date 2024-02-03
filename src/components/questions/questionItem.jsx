@@ -7,11 +7,9 @@ function QuestionItem() {
   const [activeOption, setActiveOption] = useState("");
 
   const handleOptionClick = (option) => {
-    setActiveOption(option);
-  };
-
-  const isActive = (option) => {
-    return activeOption === option;
+    if (activeOption === "") {
+      setActiveOption(option);
+    }
   };
 
   return (
@@ -20,25 +18,41 @@ function QuestionItem() {
       <ProgressBar />
       <div className="menu">
         <div
-          className={isActive("A") ? "active" : ""}
+          className={
+            (activeOption === "A" && "active") ||
+            (activeOption !== "" && "non-active") ||
+            (activeOption === "" && "not-sellected")
+          }
           onClick={() => handleOptionClick("A")}
         >
           A-) {items[2].A}
         </div>
         <div
-          className={isActive("B") ? "active" : ""}
+          className={
+            (activeOption === "B" && "active") ||
+            (activeOption !== "" && "non-active") ||
+            (activeOption === "" && "not-sellected")
+          }
           onClick={() => handleOptionClick("B")}
         >
           B-) {items[2].B}{" "}
         </div>
         <div
-          className={isActive("C") ? "active" : ""}
+          className={
+            (activeOption === "C" && "active") ||
+            (activeOption !== "" && "non-active") ||
+            (activeOption === "" && "not-sellected")
+          }
           onClick={() => handleOptionClick("C")}
         >
           C-) {items[2].C}
         </div>
         <div
-          className={isActive("D") ? "active" : ""}
+          className={
+            (activeOption === "D" && "active") ||
+            (activeOption !== "" && "non-active") ||
+            (activeOption === "" && "not-sellected")
+          }
           onClick={() => handleOptionClick("D")}
         >
           D-) {items[2].D}

@@ -3,9 +3,9 @@
 .menu>div{width: 45%;padding: 10px 10px 10px;background-color: #eee;transition: 200ms;cursor: pointer;}
 .menu>div:nth-child(odd){text-align: left;}
 .menu>div:nth-child(even){text-align: left;}
-.menu>div:hover{color: white;background-color : rgb(132, 132, 132);}
+.menu .not-sellected:hover{background-color: #66bfbf;color: white;}
 .p-progressbar-label{display: none !important;}
 .p-progressbar{margin: 10px 30px;}
-.p-progressbar-value{background-color: #dc2f2f;}
-.active{background-color: #eaf6f6 !important;color: #66bfbf;}
-.active:hover{color: white;background-color : rgb(132, 132, 132) !important;}
+.p-progressbar-value{background-color: #66bfbf;}
+.active{background-color: #66bfbf !important;color: white;cursor: not-allowed !important;}
+.non-active{cursor: not-allowed !important;}

@@ -17,7 +17,7 @@ export const ProductsProvider = ({ children }) => {
           return prevValue;
         }
       });
-    }, 50);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [value]);
