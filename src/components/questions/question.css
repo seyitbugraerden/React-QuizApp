@@ -1,1 +1,9 @@
 .bi-x-lg{position: absolute;right: 20px;top:10px;color: black;cursor: pointer;}
+.menu{display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-between;width: 100%;gap:10px}
+.menu>div{width: 45%;padding: 10px 10px 10px;background-color: #eee;transition: 200ms;cursor: pointer;}
+.menu>div:nth-child(odd){text-align: left;}
+.menu>div:nth-child(even){text-align: left;}
+.menu>div:hover{color: white;background-color : rgb(132, 132, 132);}
+.p-progressbar-label{display: none !important;}
+.p-progressbar{margin: 10px 30px;}
+.p-progressbar-value{background-color: rgb(132, 132, 132);}
