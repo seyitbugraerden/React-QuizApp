@@ -8,22 +8,22 @@ export const ProductsProvider = ({ children }) => {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    let _val = value;
-
-    setInterval(() => {
-      if (_val < 100) {
-        _val += 1.67;
-
-        setValue(_val);
-      }
-      if (_val >= 100) {
-        setValue(100);
-      }
+    const interval = setInterval(() => {
+      setValue((prevValue) => {
+        if (prevValue < 100) {
+          return prevValue + 1;
+        } else {
+          clearInterval(interval);
+          return prevValue;
+        }
+      });
     }, 50);
-  }, []);
+
+    return () => clearInterval(interval);
+  }, [value]);
 
   return (
-    <ProductsContext.Provider value={{ items, value }}>
+    <ProductsContext.Provider value={{ items, value, setValue }}>
       {children}
     </ProductsContext.Provider>
   );

@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import overWatch from "../../assets/overwatch.jpg";
+import { ProductsContext } from "../../context/dataContext";
 import "animate.css";
 function timeIsOver() {
+  const { setValue } = useContext(ProductsContext);
   return (
     <>
       <div className="card">
@@ -12,6 +14,13 @@ function timeIsOver() {
           className="animate__animated animate__flash animate__infinite	infinite animate__slower	3s"
         />
         <h4>Time is Over</h4>
+        <button
+          onClick={() => {
+            setValue(0);
+          }}
+        >
+          Try Again
+        </button>
       </div>
     </>
   );

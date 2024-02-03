@@ -1,5 +1,5 @@
 import Particles from "./components/particles/Particles";
-import QuestionArea from "./components/questions/QuestionArea";
+import QuestionArea from "./components/questions/questionArea";
 import "./App.css";
 
 function App() {
