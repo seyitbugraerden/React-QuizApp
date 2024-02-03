@@ -3,6 +3,7 @@ import { Fieldset } from "primereact/fieldset";
 import AOS from "aos";
 import QuestionItem from "./questionItem";
 import "aos/dist/aos.css";
+import "./question.css";
 
 function QuestionArea() {
   const [isVisible, setIsVisible] = useState(true);
@@ -18,13 +19,12 @@ function QuestionArea() {
       style={{ scale: isVisible ? "" : "0", transition: "500ms" }}
     >
       <QuestionItem />
-      <button
+      <i
         onClick={() => {
           setIsVisible(!isVisible);
         }}
-      >
-        Göster / Gizle
-      </button>
+        className="bi bi-x-lg"
+      ></i>
     </Fieldset>
   );
 }
