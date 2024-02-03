@@ -4,7 +4,7 @@ import correct from "../../assets/correct.jpg";
 import "animate.css";
 
 function trueAnswer() {
-  const {} = useContext(ProductsContext);
+  const { selectRandomItem } = useContext(ProductsContext);
   return (
     <div className="card">
       <img
@@ -14,7 +14,7 @@ function trueAnswer() {
         className="animate__animated animate__flash animate__infinite	infinite animate__slower	3s"
       />
       <h4>Your Answer is Correct</h4>
-      <button>Next Question</button>
+      <button onClick={selectRandomItem}>Next Question</button>
     </div>
   );
 }

@@ -39,6 +39,7 @@ export const ProductsProvider = ({ children }) => {
     const randomIndex = Math.floor(Math.random() * items.length);
     setRandomItem(items[randomIndex]);
     setRealItem(items[randomIndex].answer);
+    setActiveOption("");
   };
 
   useEffect(() => {
@@ -57,6 +58,7 @@ export const ProductsProvider = ({ children }) => {
         realItem,
         restart,
         randomItem,
+        selectRandomItem,
       }}
     >
       {children}
