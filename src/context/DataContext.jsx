@@ -19,7 +19,7 @@ export const ProductsProvider = ({ children }) => {
       if (_val >= 100) {
         setValue(100);
       }
-    }, 200);
+    }, 50);
   }, []);
 
   return (
