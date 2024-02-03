@@ -3,7 +3,7 @@ import overWatch from "../../assets/overwatch.jpg";
 import { ProductsContext } from "../../context/dataContext";
 import "animate.css";
 function timeIsOver() {
-  const { setValue } = useContext(ProductsContext);
+  const { setValue, setActiveOption } = useContext(ProductsContext);
   return (
     <>
       <div className="card">
@@ -17,6 +17,7 @@ function timeIsOver() {
         <button
           onClick={() => {
             setValue(0);
+            setActiveOption("");
           }}
         >
           Try Again

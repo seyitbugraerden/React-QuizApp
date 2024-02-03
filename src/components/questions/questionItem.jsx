@@ -3,14 +3,8 @@ import { ProductsContext } from "../../context/dataContext";
 import ProgressBar from "../progressbar/progressBar";
 
 function QuestionItem() {
-  const { items } = useContext(ProductsContext);
-  const [activeOption, setActiveOption] = useState("");
-
-  const handleOptionClick = (option) => {
-    if (activeOption === "") {
-      setActiveOption(option);
-    }
-  };
+  const { items, activeOption, handleOptionClick } =
+    useContext(ProductsContext);
 
   return (
     <>

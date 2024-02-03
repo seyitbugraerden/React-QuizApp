@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Fieldset } from "primereact/fieldset";
 import { ProductsContext } from "../../context/dataContext";
 import TimeIsOver from "../answers/timeIsOver";
+import TrueAnswer from "../answers/trueAnswer";
+import FalseAnswer from "../answers/falseAnswer";
 import AOS from "aos";
 import QuestionItem from "./questionItem";
 import "aos/dist/aos.css";
@@ -20,7 +22,7 @@ function QuestionArea() {
       data-aos-duration="1000"
       data-aos-mirror="true"
     >
-      {value >= 100 ? <TimeIsOver /> : <QuestionItem />}
+      {value >= 100 ? <FalseAnswer /> : <QuestionItem />}
     </Fieldset>
   );
 }
