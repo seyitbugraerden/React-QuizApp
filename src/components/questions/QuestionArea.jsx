@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ProductsContext } from "../../context/dataContext";
+import React, { useEffect, useState } from "react";
 import { Fieldset } from "primereact/fieldset";
 import AOS from "aos";
+import QuestionItem from "./questionItem";
 import "aos/dist/aos.css";
 
 function QuestionArea() {
   const [isVisible, setIsVisible] = useState(true);
-  const { items } = useContext(ProductsContext);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -18,7 +17,7 @@ function QuestionArea() {
       data-aos-mirror="true"
       style={{ scale: isVisible ? "" : "0", transition: "500ms" }}
     >
-      <p className="m-0">{items[0].question}</p>
+      <QuestionItem />
       <button
         onClick={() => {
           setIsVisible(!isVisible);
