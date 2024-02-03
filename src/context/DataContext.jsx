@@ -19,13 +19,13 @@ export const ProductsProvider = ({ children }) => {
     const interval = setInterval(() => {
       setValue((prevValue) => {
         if (prevValue < 100) {
-          return prevValue + 1;
+          return prevValue + 0.8;
         } else {
           clearInterval(interval);
           return prevValue;
         }
       });
-    }, 500);
+    }, 100);
 
     return () => clearInterval(interval);
   }, [value]);
