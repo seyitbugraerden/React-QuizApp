@@ -7,3 +7,5 @@
 .p-progressbar-label{display: none !important;}
 .p-progressbar{margin: 10px 30px;}
 .p-progressbar-value{background-color: rgb(132, 132, 132);}
+.active{background-color: #eaf6f6 !important;color: #66bfbf;}
+.active:hover{color: white;background-color : rgb(132, 132, 132) !important;}
