@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 import "./question.css";
 
 function QuestionArea() {
-  const { value, setValue } = useContext(ProductsContext);
+  const { value, activeOption } = useContext(ProductsContext);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -22,7 +22,7 @@ function QuestionArea() {
       data-aos-duration="1000"
       data-aos-mirror="true"
     >
-      {value >= 100 ? <FalseAnswer /> : <QuestionItem />}
+      {activeOption === "" ? <QuestionItem /> : <FalseAnswer />}
     </Fieldset>
   );
 }
