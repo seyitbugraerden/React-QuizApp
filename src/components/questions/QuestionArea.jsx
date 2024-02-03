@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 import "./question.css";
 
 function QuestionArea() {
-  const { value, activeOption, realAnswer } = useContext(ProductsContext);
+  const { value, activeOption, realItem } = useContext(ProductsContext);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -25,10 +25,8 @@ function QuestionArea() {
       {value < 100 ? (
         <>
           {activeOption === "" && <QuestionItem />}
-          {activeOption === realAnswer && <TrueAnswer />}
-          {activeOption !== realAnswer && activeOption !== "" && (
-            <FalseAnswer />
-          )}
+          {activeOption === realItem && <TrueAnswer />}
+          {activeOption !== realItem && activeOption !== "" && <FalseAnswer />}
         </>
       ) : (
         <TimeIsOver />

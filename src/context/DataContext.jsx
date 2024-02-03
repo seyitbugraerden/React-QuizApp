@@ -7,14 +7,13 @@ export const ProductsProvider = ({ children }) => {
   const [items, setItems] = useState(data);
   const [value, setValue] = useState(0);
   const [activeOption, setActiveOption] = useState("");
-
+  const [randomItem, setRandomItem] = useState("");
+  const [realItem, setRealItem] = useState("");
   const handleOptionClick = (option) => {
     if (activeOption === "") {
       setActiveOption(option);
     }
   };
-
-  const realAnswer = items[2].answer;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,6 +35,16 @@ export const ProductsProvider = ({ children }) => {
     setValue(0);
   };
 
+  const selectRandomItem = () => {
+    const randomIndex = Math.floor(Math.random() * items.length);
+    setRandomItem(items[randomIndex]);
+    setRealItem(items[randomIndex].answer);
+  };
+
+  useEffect(() => {
+    selectRandomItem();
+  }, []);
+
   return (
     <ProductsContext.Provider
       value={{
@@ -45,8 +54,9 @@ export const ProductsProvider = ({ children }) => {
         activeOption,
         handleOptionClick,
         setActiveOption,
-        realAnswer,
+        realItem,
         restart,
+        randomItem,
       }}
     >
       {children}

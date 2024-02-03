@@ -3,12 +3,12 @@ import { ProductsContext } from "../../context/dataContext";
 import ProgressBar from "../progressbar/progressBar";
 
 function QuestionItem() {
-  const { items, activeOption, handleOptionClick } =
+  const { randomItem, activeOption, handleOptionClick } =
     useContext(ProductsContext);
 
   return (
     <>
-      <p>{items[2].question}</p>
+      <p>{randomItem.question}</p>
       <ProgressBar />
       <div className="menu">
         <div
@@ -19,7 +19,7 @@ function QuestionItem() {
           }
           onClick={() => handleOptionClick("A")}
         >
-          A-) {items[2].A}
+          A-) {randomItem.A}
         </div>
         <div
           className={
@@ -29,7 +29,7 @@ function QuestionItem() {
           }
           onClick={() => handleOptionClick("B")}
         >
-          B-) {items[2].B}{" "}
+          B-) {randomItem.B}{" "}
         </div>
         <div
           className={
@@ -39,7 +39,7 @@ function QuestionItem() {
           }
           onClick={() => handleOptionClick("C")}
         >
-          C-) {items[2].C}
+          C-) {randomItem.C}
         </div>
         <div
           className={
@@ -49,7 +49,7 @@ function QuestionItem() {
           }
           onClick={() => handleOptionClick("D")}
         >
-          D-) {items[2].D}
+          D-) {randomItem.D}
         </div>
       </div>
     </>
