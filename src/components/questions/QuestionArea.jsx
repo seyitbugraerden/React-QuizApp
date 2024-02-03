@@ -2,15 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { Fieldset } from "primereact/fieldset";
 import { ProductsContext } from "../../context/dataContext";
 import TimeIsOver from "../answers/timeIsOver";
-import TrueAnswer from "../answers/trueAnswer";
 import FalseAnswer from "../answers/falseAnswer";
+import TrueAnswer from "../answers/trueAnswer";
 import AOS from "aos";
 import QuestionItem from "./questionItem";
 import "aos/dist/aos.css";
 import "./question.css";
 
 function QuestionArea() {
-  const { value, activeOption } = useContext(ProductsContext);
+  const { value, activeOption, realAnswer } = useContext(ProductsContext);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -22,7 +22,17 @@ function QuestionArea() {
       data-aos-duration="1000"
       data-aos-mirror="true"
     >
-      {activeOption === "" ? <QuestionItem /> : <FalseAnswer />}
+      {value < 100 ? (
+        <>
+          {activeOption === "" && <QuestionItem />}
+          {activeOption === realAnswer && <TrueAnswer />}
+          {activeOption !== realAnswer && activeOption !== "" && (
+            <FalseAnswer />
+          )}
+        </>
+      ) : (
+        <TimeIsOver />
+      )}
     </Fieldset>
   );
 }

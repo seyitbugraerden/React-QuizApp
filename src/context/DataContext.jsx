@@ -14,6 +14,8 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const realAnswer = items[2].answer;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setValue((prevValue) => {
@@ -29,11 +31,11 @@ export const ProductsProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [value]);
 
-  useEffect(() => {
-    if (activeOption !== "") {
-      setValue(100);
-    }
-  }, [activeOption]);
+  // useEffect(() => {
+  //   if (activeOption !== "") {
+  //     setValue(100);
+  //   }
+  // }, [activeOption]);
 
   return (
     <ProductsContext.Provider
@@ -44,6 +46,7 @@ export const ProductsProvider = ({ children }) => {
         activeOption,
         handleOptionClick,
         setActiveOption,
+        realAnswer,
       }}
     >
       {children}
