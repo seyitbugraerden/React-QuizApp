@@ -31,11 +31,10 @@ export const ProductsProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [value]);
 
-  // useEffect(() => {
-  //   if (activeOption !== "") {
-  //     setValue(100);
-  //   }
-  // }, [activeOption]);
+  const restart = () => {
+    setActiveOption("");
+    setValue(0);
+  };
 
   return (
     <ProductsContext.Provider
@@ -47,6 +46,7 @@ export const ProductsProvider = ({ children }) => {
         handleOptionClick,
         setActiveOption,
         realAnswer,
+        restart,
       }}
     >
       {children}

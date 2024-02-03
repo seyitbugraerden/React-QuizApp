@@ -3,7 +3,7 @@ import overWatch from "../../assets/overwatch.jpg";
 import { ProductsContext } from "../../context/dataContext";
 import "animate.css";
 function timeIsOver() {
-  const { setValue, setActiveOption } = useContext(ProductsContext);
+  const { restart } = useContext(ProductsContext);
   return (
     <>
       <div className="card">
@@ -14,14 +14,7 @@ function timeIsOver() {
           className="animate__animated animate__flash animate__infinite	infinite animate__slower	3s"
         />
         <h4>Time is Over</h4>
-        <button
-          onClick={() => {
-            setValue(0);
-            setActiveOption("");
-          }}
-        >
-          Try Again
-        </button>
+        <button onClick={restart}>Try Again</button>
       </div>
     </>
   );

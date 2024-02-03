@@ -3,8 +3,8 @@ import { ProductsContext } from "../../context/dataContext";
 import falseIcon from "../../assets/false.jpg";
 import "animate.css";
 
-function trueAnswer() {
-  const {} = useContext(ProductsContext);
+function falceanswer() {
+  const { restart } = useContext(ProductsContext);
   return (
     <div className="card">
       <img
@@ -14,9 +14,9 @@ function trueAnswer() {
         className="animate__animated animate__flash animate__infinite	infinite animate__slower	3s"
       />
       <h4>Your Answer is NOT Correct</h4>
-      <button>Try Again</button>
+      <button onClick={restart}>Try Again</button>
     </div>
   );
 }
 
-export default trueAnswer;
+export default falceanswer;
