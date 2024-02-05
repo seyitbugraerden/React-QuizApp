@@ -9,6 +9,7 @@ export const ProductsProvider = ({ children }) => {
   const [activeOption, setActiveOption] = useState("");
   const [randomItem, setRandomItem] = useState("");
   const [realItem, setRealItem] = useState("");
+
   const handleOptionClick = (option) => {
     if (activeOption === "") {
       setActiveOption(option);
@@ -16,19 +17,22 @@ export const ProductsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setValue((prevValue) => {
-        if (prevValue < 100) {
-          return prevValue + 0.8;
-        } else {
-          clearInterval(interval);
-          return prevValue;
-        }
-      });
-    }, 100);
+    let interval;
+    if (activeOption === "") {
+      interval = setInterval(() => {
+        setValue((prevValue) => {
+          if (prevValue < 100) {
+            return prevValue + 0.8;
+          } else {
+            clearInterval(interval);
+            return prevValue;
+          }
+        });
+      }, 100);
+    }
 
     return () => clearInterval(interval);
-  }, [value]);
+  }, [activeOption]);
 
   const restart = () => {
     setActiveOption("");
